@@ -1,0 +1,20 @@
+{
+  "name": "supabase01",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "@astrojs/node": "^8.2.3",
+    "@supabase/supabase-js": "^2.39.7",
+    "astro": "^4.4.9",
+    "bootstrap": "^5.3.3",
+    "gh-pages": "^6.1.1"
+  }
+}

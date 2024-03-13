@@ -1,0 +1,33 @@
+---
+import Layout from '../layout/Layout.astro';
+import Card from '../components/Card.astro';
+import { supabase } from '../lib/supabase.js';
+
+const categoria=4
+const nomCategoria="Papeleria"
+const { data: product, error } = await supabase.from("product").select("*").eq('categoria_id', categoria);
+
+
+---
+<Layout>
+	<div class="container">
+		<h3 class="text-center py-5">{nomCategoria}</h3>
+		<div class="row">
+
+			{
+				product && product.map((item)=>(
+					<Card producto={item} tipoCard="col-md-4 col-lg-3 col-xl-2 mb-4"/>
+				))
+			}
+
+		</div>
+	</div>
+</Layout>
+
+		
+
+				
+	
+
+
+

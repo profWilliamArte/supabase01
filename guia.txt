@@ -1,0 +1,71 @@
+https://www.youtube.com/watch?v=G6tAa9U3fh0&t=98s&ab_channel=aquicreamos
+
+1) npm create astro@latest
+2) npm install bootstrap@latest
+    colocar esto en el Layout para integrar a bootstrap
+    import 'bootstrap/dist/css/bootstrap.css'; /*al inicio*/
+    <script src="bootstrap/dist/js/bootstrap.bundle.js"></script> /* al final*/
+
+3) npm install @supabase/supabase-js
+
+crear una carpeta en src lib y 
+crear supabase.env y crear el cliente copiando el codigo de 
+    https://supabase.com/docs/reference/javascript/initializing
+
+
+4) npx astro add node // para poder generar el server
+
+--------------------------------------------------
+# solo si se va a desplegar en github con gh-pages
+--------------------------------------------------
+    5) npm i gh-pages
+    6) agregar esta linea en el script 
+    "deploy": "gh-pages -d dist"
+    7) en astro.config.mjs
+        export default defineConfig({
+        site: 'https://profwilliamarte.github.io',/* aqui colocarias el nombre de tu cuenta*/
+        base: '/nombrerepo',/* aqui colocarias el nombre de tu repositorio*/
+        build: {
+            assets: 'astro' /// muy importante
+        }
+    });
+    8) colocar el todos los enlases y llamados a imagenes /nombrerepo
+--------------------------------------------------
+# fin
+--------------------------------------------------
+
+--------------------------------------------------
+# para usar las transisiones agregar en el layout
+--------------------------------------------------
+1) import { ViewTransitions } from 'astro:transitions'; // al principio
+2) <ViewTransitions/>                                   // despues del title antes del fin de <head>
+3) <main transition:animate="slide">                    // en el main
+
+
+
+
+
+
+
+
+
+
+
+//comandos de supabase
+
+
+import { supabase } from '../lib/supabase.js';
+const { data: product, error } = await supabase.from("product").select();
+const { data: product, error } = await supabase.from("product").select("*").eq('id', 1);
+const { data: product, error } = await supabase.from("product").select("*").eq('categoria_id', 1);
+
+eq('column', 'Equal to'): Devuelve filas donde el valor de la columna es igual al valor proporcionado.
+gt('column', 'Greater than'): Devuelve filas donde el valor de la columna es mayor que el valor proporcionado.
+lt('column', 'Less than'): Devuelve filas donde el valor de la columna es menor que el valor proporcionado.
+gte('column', 'Greater than or equal to'): Devuelve filas donde el valor de la columna es mayor o igual al valor proporcionado.
+lte('column', 'Less than or equal to'): Devuelve filas donde el valor de la columna es menor o igual al valor proporcionado.
+like('column', '%CaseSensitive%'): Devuelve filas donde el valor de la columna coincide con el patrón especificado, distinguiendo entre mayúsculas y minúsculas.
+ilike('column', '%CaseInsensitive%'): Devuelve filas donde el valor de la columna coincide con el patrón especificado, sin distinguir entre mayúsculas y minúsculas.
+is('column', null): Devuelve filas donde el valor de la columna es nulo.
+in('column', ['Array', 'Values']): Devuelve filas donde el valor de la columna está dentro de la lista de valores proporcionada.
+neq('column', 'Not equal to'): Devuelve filas donde el valor de la columna no es igual al valor proporcionado.
