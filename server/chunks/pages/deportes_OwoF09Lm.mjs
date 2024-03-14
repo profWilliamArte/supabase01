@@ -1,9 +1,10 @@
 import { c as createAstro, d as createComponent, r as renderTemplate, f as renderComponent, m as maybeRenderHead } from '../astro_BwFYNnvI.mjs';
 import 'kleur/colors';
 import 'html-escaper';
-import { s as supabase, $ as $$Card, a as $$Layout } from './buscar_KGUXU8Lk.mjs';
+import { s as supabase, $ as $$Card, a as $$Layout } from './buscar_CLUZqvs8.mjs';
 
 const $$Astro = createAstro("https://profwilliamarte.github.io");
+const prerender = false;
 const $$Deportes = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$Deportes;
@@ -16,4 +17,4 @@ const $$Deportes = createComponent(async ($$result, $$props, $$slots) => {
 const $$file = "C:/laragon/www/arsistema/guias/astro/supabase/supabase01/src/pages/deportes.astro";
 const $$url = "/supabase01/deportes";
 
-export { $$Deportes as default, $$file as file, $$url as url };
+export { $$Deportes as default, $$file as file, prerender, $$url as url };

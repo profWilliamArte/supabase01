@@ -50,6 +50,7 @@ const $$Card = createComponent(async ($$result, $$props, $$slots) => {
 }, "C:/laragon/www/arsistema/guias/astro/supabase/supabase01/src/components/Card.astro", void 0);
 
 const $$Astro = createAstro("https://profwilliamarte.github.io");
+const prerender = false;
 const $$Buscar = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$Buscar;
@@ -65,6 +66,7 @@ const buscar = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
 	default: $$Buscar,
 	file: $$file,
+	prerender,
 	url: $$url
 }, Symbol.toStringTag, { value: 'Module' }));
 
